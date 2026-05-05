@@ -3,8 +3,18 @@ PKG         := github.com/fadilxcoder/app-cli
 CMD         := ./cmd/myapp
 DIST        := dist
 VERSION     ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo dev)
-LDFLAGS     := -s -w -X main.Version=$(VERSION)
 GO          ?= go
+
+# Optional build-time Supabase defaults — empty in dev, set by CI from
+# repo secrets so released binaries are self-contained.
+BAKED_SUPABASE_URL      ?=
+BAKED_SUPABASE_ANON_KEY ?=
+
+CONFIG_PKG := $(PKG)/internal/config
+LDFLAGS    := -s -w \
+              -X main.Version=$(VERSION) \
+              -X $(CONFIG_PKG).bakedSupabaseURL=$(BAKED_SUPABASE_URL) \
+              -X $(CONFIG_PKG).bakedSupabaseAnonKey=$(BAKED_SUPABASE_ANON_KEY)
 
 .PHONY: all tidy fmt vet test build build-linux build-mac build-mac-arm release clean install
 

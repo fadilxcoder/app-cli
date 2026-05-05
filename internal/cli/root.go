@@ -29,6 +29,7 @@ func Execute(version string) error {
 		newLogoutCmd(),
 		newWhoamiCmd(),
 		newRunSecureCmd(),
+		newUpgradeCmd(version),
 	)
 	return root.Execute()
 }

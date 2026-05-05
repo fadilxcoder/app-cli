@@ -16,6 +16,7 @@ const (
 
 	configDirName  = ".myapp"
 	configFileName = "config.json"
+	envFileName    = ".env"
 )
 
 // Config holds runtime configuration sourced from env / .env.
@@ -24,20 +25,41 @@ type Config struct {
 	SupabaseAnonKey string
 }
 
+// Build-time defaults injected via `go build -ldflags "-X ..."`.
+// Empty in source so tests and local dev builds still depend on env/.env.
+// Released binaries embed the maintainer's hosted Supabase project so
+// end users can run `myapp login` without any prior configuration.
+var (
+	bakedSupabaseURL     string
+	bakedSupabaseAnonKey string
+)
+
 // Load reads SUPABASE_URL and SUPABASE_ANON_KEY from the environment.
-// If a .env file exists in the working directory it is loaded first
-// (existing env vars take precedence).
+// Lookup order (first match wins per key):
+//  1. Process environment
+//  2. ./.env in the current working directory
+//  3. ~/.myapp/.env
+//  4. Build-time defaults baked into released binaries
 func Load() (*Config, error) {
-	_ = godotenv.Load() // optional; ignore missing file
+	_ = godotenv.Load() // ./ .env — optional
+	if home, err := os.UserHomeDir(); err == nil {
+		_ = godotenv.Load(filepath.Join(home, configDirName, envFileName))
+	}
 
 	url := strings.TrimSpace(os.Getenv(EnvSupabaseURL))
-	key := strings.TrimSpace(os.Getenv(EnvSupabaseAnonKey))
-
 	if url == "" {
-		return nil, fmt.Errorf("%s is not set", EnvSupabaseURL)
+		url = bakedSupabaseURL
 	}
+	key := strings.TrimSpace(os.Getenv(EnvSupabaseAnonKey))
 	if key == "" {
-		return nil, fmt.Errorf("%s is not set", EnvSupabaseAnonKey)
+		key = bakedSupabaseAnonKey
+	}
+
+	if url == "" || key == "" {
+		return nil, fmt.Errorf(
+			"%s and %s must be set — export them in your shell, or create ./.env or ~/.myapp/.env",
+			EnvSupabaseURL, EnvSupabaseAnonKey,
+		)
 	}
 
 	url = strings.TrimRight(url, "/")

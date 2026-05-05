@@ -23,6 +23,9 @@ jobs:
         run: go test ./...
 
       - name: Build cross-platform binaries
+        env:
+          BAKED_SUPABASE_URL: ${{ secrets.BAKED_SUPABASE_URL }}
+          BAKED_SUPABASE_ANON_KEY: ${{ secrets.BAKED_SUPABASE_ANON_KEY }}
         run: make release VERSION=${GITHUB_REF_NAME}
 
       - name: Create GitHub release
