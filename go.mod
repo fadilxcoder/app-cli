@@ -1,4 +1,4 @@
-module github.com/fadilxcoder/lpdi-cli-app
+module github.com/fadilxcoder/app-cli
 
 go 1.22
 

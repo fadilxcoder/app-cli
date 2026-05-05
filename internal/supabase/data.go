@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/fadilxcoder/lpdi-cli-app/pkg/httpclient"
+	"github.com/fadilxcoder/app-cli/pkg/httpclient"
 )
 
 // DataClient wraps Supabase's PostgREST data API.

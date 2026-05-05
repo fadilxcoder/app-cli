@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/fadilxcoder/lpdi-cli-app/internal/cli"
+	"github.com/fadilxcoder/app-cli/internal/cli"
 )
 
 // Version is overridden at build time via -ldflags.

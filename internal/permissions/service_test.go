@@ -8,7 +8,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/fadilxcoder/lpdi-cli-app/internal/supabase"
+	"github.com/fadilxcoder/app-cli/internal/supabase"
 )
 
 func newSrv(t *testing.T, body string) (*httptest.Server, *supabase.DataClient) {

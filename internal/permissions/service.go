@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/fadilxcoder/lpdi-cli-app/internal/supabase"
+	"github.com/fadilxcoder/app-cli/internal/supabase"
 )
 
 // Well-known permissions used by the CLI.

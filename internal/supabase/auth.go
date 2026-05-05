@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/fadilxcoder/lpdi-cli-app/pkg/httpclient"
+	"github.com/fadilxcoder/app-cli/pkg/httpclient"
 )
 
 // AuthClient wraps Supabase's GoTrue REST API.

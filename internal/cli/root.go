@@ -8,10 +8,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/fadilxcoder/lpdi-cli-app/internal/auth"
-	"github.com/fadilxcoder/lpdi-cli-app/internal/config"
-	"github.com/fadilxcoder/lpdi-cli-app/internal/permissions"
-	"github.com/fadilxcoder/lpdi-cli-app/internal/supabase"
+	"github.com/fadilxcoder/app-cli/internal/auth"
+	"github.com/fadilxcoder/app-cli/internal/config"
+	"github.com/fadilxcoder/app-cli/internal/permissions"
+	"github.com/fadilxcoder/app-cli/internal/supabase"
 )
 
 // Execute builds the root command and runs the CLI.

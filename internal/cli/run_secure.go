@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/fadilxcoder/lpdi-cli-app/internal/permissions"
+	"github.com/fadilxcoder/app-cli/internal/permissions"
 )
 
 func newRunSecureCmd() *cobra.Command {

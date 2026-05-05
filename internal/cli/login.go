@@ -13,7 +13,7 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"github.com/fadilxcoder/lpdi-cli-app/internal/auth"
+	"github.com/fadilxcoder/app-cli/internal/auth"
 )
 
 func newLoginCmd() *cobra.Command {

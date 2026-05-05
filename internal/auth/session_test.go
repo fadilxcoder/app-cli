@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fadilxcoder/lpdi-cli-app/internal/config"
+	"github.com/fadilxcoder/app-cli/internal/config"
 )
 
 func TestSessionRoundTrip(t *testing.T) {

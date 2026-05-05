@@ -1,5 +1,5 @@
 BINARY      := myapp
-PKG         := github.com/fadilxcoder/lpdi-cli-app
+PKG         := github.com/fadilxcoder/app-cli
 CMD         := ./cmd/myapp
 DIST        := dist
 VERSION     ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo dev)

@@ -4,13 +4,13 @@
 #   curl -fsSL https://raw.githubusercontent.com/<owner>/<repo>/main/install.sh | sh
 #
 # Environment overrides:
-#   MYAPP_REPO     GitHub "owner/repo" (default: fadilxcoder/lpdi-cli-app)
+#   MYAPP_REPO     GitHub "owner/repo" (default: fadilxcoder/app-cli)
 #   MYAPP_VERSION  release tag (default: latest)
 #   MYAPP_BIN_DIR  install directory (default: /usr/local/bin)
 
 set -eu
 
-REPO="${MYAPP_REPO:-fadilxcoder/lpdi-cli-app}"
+REPO="${MYAPP_REPO:-fadilxcoder/app-cli}"
 VERSION="${MYAPP_VERSION:-latest}"
 BIN_DIR="${MYAPP_BIN_DIR:-/usr/local/bin}"
 BIN_NAME="myapp"

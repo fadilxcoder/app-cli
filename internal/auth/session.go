@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/fadilxcoder/lpdi-cli-app/internal/config"
+	"github.com/fadilxcoder/app-cli/internal/config"
 )
 
 // Session represents the locally-persisted auth state for the CLI.

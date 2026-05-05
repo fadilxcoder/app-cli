@@ -8,8 +8,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/fadilxcoder/lpdi-cli-app/internal/auth"
-	"github.com/fadilxcoder/lpdi-cli-app/internal/config"
+	"github.com/fadilxcoder/app-cli/internal/auth"
+	"github.com/fadilxcoder/app-cli/internal/config"
 )
 
 func newLogoutCmd() *cobra.Command {
