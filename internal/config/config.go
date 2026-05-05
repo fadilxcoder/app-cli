@@ -61,6 +61,9 @@ func Load() (*Config, error) {
 			EnvSupabaseURL, EnvSupabaseAnonKey,
 		)
 	}
+	if !strings.HasPrefix(url, "https://") && !strings.HasPrefix(url, "http://") {
+		return nil, fmt.Errorf("%s is malformed (got %q) — expected an https:// URL", EnvSupabaseURL, url)
+	}
 
 	url = strings.TrimRight(url, "/")
 	return &Config{SupabaseURL: url, SupabaseAnonKey: key}, nil
